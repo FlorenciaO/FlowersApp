@@ -6,9 +6,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flowersapp.flowers.Flower;
+
 public class DetallesFlowerActivity extends AppCompatActivity {
 
-    public static final String KEY_PARAM_LIBRO = "LIBRO";
+    public static final String KEY_PARAM_FLOWER = "FLOWER";
 
     private ImageView imageView;
     private TextView nombreTv;
@@ -27,9 +29,28 @@ public class DetallesFlowerActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
-        // TODO(1. Obtener el libro desde el bundle)
-        // TODO(2. Set up el source de image view segun tipo de ImageId)
-        // TODO(3. Set up el nombre de la flor)
-        // TODO(4. Set up la breve descripcion de la flor)
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            Flower flor = (Flower) bundle.getSerializable(KEY_PARAM_FLOWER);
+            switch (flor.getImagenId()) {
+                case FLOR1:
+                    imageView.setImageResource(R.drawable.flor1);
+                    break;
+                case FLOR2:
+                    imageView.setImageResource(R.drawable.flor2);
+                    break;
+                case FLOR3:
+                    imageView.setImageResource(R.drawable.flor3);
+                    break;
+                case FLOR4:
+                    imageView.setImageResource(R.drawable.flor4);
+                    break;
+                case PLACEHOLDER:
+                    imageView.setImageResource(R.drawable.placeholder);
+                    break;
+            }
+            nombreTv.setText(flor.getNombre());
+            descTv.setText(flor.getDescripcion());
+        }
     }
 }

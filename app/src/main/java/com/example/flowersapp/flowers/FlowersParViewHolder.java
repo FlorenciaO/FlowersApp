@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flowersapp.R;
 
-public class FlowersViewHolder extends RecyclerView.ViewHolder {
+public class FlowersParViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
     TextView nombreTv;
     ImageView abrirIv;
 
-    public FlowersViewHolder(@NonNull View itemView) {
+    public FlowersParViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView = itemView.findViewById(R.id.flor_image_view);
         nombreTv = itemView.findViewById(R.id.nombre_text_view);

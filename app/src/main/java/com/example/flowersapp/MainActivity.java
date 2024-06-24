@@ -1,5 +1,8 @@
 package com.example.flowersapp;
 
+import static com.example.flowersapp.DetallesFlowerActivity.KEY_PARAM_FLOWER;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
         flowersAdapter = new FlowersAdapter(new FlowersAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Flower flor) {
-                // TODO(1. Abrir DetallersFlowerActivity con la flor como parametro)
+                Intent intent = new Intent(MainActivity.this, DetallesFlowerActivity.class);
+                intent.putExtra(KEY_PARAM_FLOWER, flor);
+                startActivity(intent);
             }
         });
 
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             add(new Flower(1, getString(R.string.flor1_nombre), getString(R.string.flor1_desc), Flower.ImagenId.FLOR1));
             add(new Flower(2,getString(R.string.flor2_nombre), getString(R.string.flor2_desc), Flower.ImagenId.FLOR2));
             add(new Flower(3, getString(R.string.flor3_nombre), getString(R.string.flor3_desc), Flower.ImagenId.FLOR3));
+            add(new Flower(4, getString(R.string.flor4_nombre), getString(R.string.flor4_desc), Flower.ImagenId.FLOR4));
         }};
     }
 }
