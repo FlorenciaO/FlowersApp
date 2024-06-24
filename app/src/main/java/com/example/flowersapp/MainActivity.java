@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         floresRV.setAdapter(flowersAdapter);
-        flowersAdapter.setLibros(getLibros());
+        flowersAdapter.setFlowers(getLibros());
     }
 
     private List<Flower> getLibros() {
