@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         floresRV.setAdapter(flowersAdapter);
-        flowersAdapter.setLibros(getLibros());
+        flowersAdapter.setFlowers(getFlowers());
     }
 
-    private List<Flower> getLibros() {
+    private List<Flower> getFlowers() {
         return new ArrayList<Flower>() {{
             add(new Flower(1, getString(R.string.flor1_nombre), getString(R.string.flor1_desc), Flower.ImagenId.FLOR1));
             add(new Flower(2,getString(R.string.flor2_nombre), getString(R.string.flor2_desc), Flower.ImagenId.FLOR2));

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class DetallesFlowerActivity extends AppCompatActivity {
 
-    public static final String KEY_PARAM_LIBRO = "LIBRO";
+    public static final String KEY_PARAM_FLOWER = "FLOWER";
 
     private ImageView imageView;
     private TextView nombreTv;
@@ -27,7 +27,7 @@ public class DetallesFlowerActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
-        // TODO(1. Obtener el libro desde el bundle)
+        // TODO(1. Obtener la flor desde el bundle)
         // TODO(2. Set up el source de image view segun tipo de ImageId)
         // TODO(3. Set up el nombre de la flor)
         // TODO(4. Set up la breve descripcion de la flor)

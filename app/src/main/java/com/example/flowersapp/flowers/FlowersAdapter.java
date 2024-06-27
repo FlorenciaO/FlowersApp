@@ -42,7 +42,7 @@ public class FlowersAdapter extends
         return flowers.size();
     }
 
-    public void setLibros(List<Flower> flowers) {
+    public void setFlowers(List<Flower> flowers) {
         this.flowers = flowers;
         // TODO(4. Como mejora, utilizar un DiffUtil para mejor rendimiento)
         notifyDataSetChanged();
