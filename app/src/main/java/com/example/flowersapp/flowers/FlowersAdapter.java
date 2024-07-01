@@ -1,5 +1,6 @@
 package com.example.flowersapp.flowers;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -16,6 +17,8 @@ import java.util.Objects;
 public class FlowersAdapter extends
         RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final String TAG = "ADAPTER";
+
     private List<Flower> flowers = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
 
@@ -23,6 +26,9 @@ public class FlowersAdapter extends
         this.onItemClickListener = onItemClickListener;
     }
 
+    /**
+     * Este metodo se llama cuando el RecyclerView necesita una nueva vista, es decir, hay un item nuevo.
+     */
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,14 +37,20 @@ public class FlowersAdapter extends
         switch (viewType) {
             case 1:
                 viewHolder = new FlowersImparViewHolder(layoutInflater.inflate(R.layout.item_flower_impar, parent, false));
+                Log.d(TAG, "onCreateViewHolder - tipo impar");
                 break;
             case 0:
                 viewHolder = new FlowersParViewHolder(layoutInflater.inflate(R.layout.item_flower_par, parent, false));
+                Log.d(TAG, "onCreateViewHolder - tipo par");
                 break;
         }
         return viewHolder;
     }
 
+    /**
+     * Este metodo es llamado por el Recyclerview para mostrar la data en la posicion especificada.
+     * Se debe actualizar la vista en base al item.
+     */
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Flower flor = flowers.get(position);
@@ -46,10 +58,12 @@ public class FlowersAdapter extends
             case 1:
                 FlowersImparViewHolder viewHolder1 = (FlowersImparViewHolder) holder;
                 viewHolder1.bind(flor, onItemClickListener);
+                Log.d(TAG, "onBindViewHolder - tipo impar");
                 break;
             case 0:
                 FlowersParViewHolder viewHolder2 = (FlowersParViewHolder) holder;
                 viewHolder2.bind(flor, onItemClickListener);
+                Log.d(TAG, "onBindViewHolder - tipo par");
                 break;
         }
     }
@@ -82,7 +96,7 @@ public class FlowersAdapter extends
         diffResult.dispatchUpdatesTo(this);
     }
 
-    public List<Flower> getLibros() {
+    public List<Flower> getFloresLista() {
         return this.flowers;
     }
 

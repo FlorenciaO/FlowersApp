@@ -4,6 +4,8 @@ import static com.example.flowersapp.DetallesFlowerActivity.KEY_PARAM_FLOWER;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,12 +20,24 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView floresRV;
     private FlowersAdapter flowersAdapter;
+    private Button agregarItemBtn;
+    private int idContador = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupAdapter();
+        agregarItemBtn = findViewById(R.id.agregar_item);
+        agregarItemBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<Flower> newList = (ArrayList<Flower>) flowersAdapter.getFloresLista();
+                newList.add(new Flower(4, getString(R.string.flor_nombre_ejemplo), getString(R.string.flor_desc_ejemplo), Flower.ImagenId.PLACEHOLDER));
+                idContador++;
+                flowersAdapter.setFlowers(newList);
+            }
+        });
     }
 
     private void setupAdapter() {
@@ -39,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         floresRV.setAdapter(flowersAdapter);
-        flowersAdapter.setFlowers(getFlores());
+        flowersAdapter.setFlowers(getFlowers());
     }
 
-    private List<Flower> getFlores() {
+    private List<Flower> getFlowers() {
         return new ArrayList<Flower>() {{
             add(new Flower(1, getString(R.string.flor1_nombre), getString(R.string.flor1_desc), Flower.ImagenId.FLOR1));
-            add(new Flower(2,getString(R.string.flor2_nombre), getString(R.string.flor2_desc), Flower.ImagenId.FLOR2));
+            add(new Flower(2, getString(R.string.flor2_nombre), getString(R.string.flor2_desc), Flower.ImagenId.FLOR2));
             add(new Flower(3, getString(R.string.flor3_nombre), getString(R.string.flor3_desc), Flower.ImagenId.FLOR3));
             add(new Flower(4, getString(R.string.flor4_nombre), getString(R.string.flor4_desc), Flower.ImagenId.FLOR4));
         }};
