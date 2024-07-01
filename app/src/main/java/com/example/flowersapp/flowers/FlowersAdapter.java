@@ -22,8 +22,9 @@ public class FlowersAdapter extends
     private List<Flower> flowers = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
 
-    public FlowersAdapter(OnItemClickListener onItemClickListener) {
+    public FlowersAdapter(OnItemClickListener onItemClickListener, List<Flower> flores) {
         this.onItemClickListener = onItemClickListener;
+        this.flowers.addAll(flores);
     }
 
     /**
@@ -78,10 +79,6 @@ public class FlowersAdapter extends
         return position % 2; // Retorna 0 si es par, 1 si es impar
     }
 
-    public void setFlowers(List<Flower> flowers) {
-        this.flowers = flowers;
-    }
-
     public void setNewFlowers(List<Flower> newFlowers) {
         /*
         Al llamar al metodo dispatchUpdatesTo(RecyclerView.Adapter) se envia la lista actualizada.
@@ -128,6 +125,7 @@ public class FlowersAdapter extends
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
             Flower oldItem = oldList.get(oldItemPosition);
             Flower newItem = newList.get(newItemPosition);
+            Log.d(TAG, "areItemsTheSame");
             return Objects.equals(oldItem.getId(), newItem.getId());
         }
 
@@ -136,6 +134,7 @@ public class FlowersAdapter extends
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             Flower oldItem = oldList.get(oldItemPosition);
             Flower newItem = newList.get(newItemPosition);
+            Log.d(TAG, "areContentsTheSame");
             return Objects.equals(oldItem.getDescripcion(), newItem.getDescripcion());
         }
     }

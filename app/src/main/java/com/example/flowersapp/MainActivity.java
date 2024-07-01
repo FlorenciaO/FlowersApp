@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         agregarItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Flower> newList = (ArrayList<Flower>) flowersAdapter.getFloresLista();
+                List<Flower> newList = new ArrayList<>( flowersAdapter.getFloresLista() );
                 newList.add(new Flower(4, getString(R.string.flor_nombre_ejemplo), getString(R.string.flor_desc_ejemplo), Flower.ImagenId.PLACEHOLDER));
                 idContador++;
-                flowersAdapter.setFlowers(newList);
+                flowersAdapter.setNewFlowers(newList);
             }
         });
     }
@@ -50,10 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(KEY_PARAM_FLOWER, flor);
                 startActivity(intent);
             }
-        });
+        }, getFlowers());
 
         floresRV.setAdapter(flowersAdapter);
-        flowersAdapter.setFlowers(getFlowers());
     }
 
     private List<Flower> getFlowers() {
