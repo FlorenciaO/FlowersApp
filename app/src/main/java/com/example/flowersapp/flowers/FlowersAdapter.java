@@ -16,7 +16,7 @@ import java.util.List;
 public class FlowersAdapter extends
         RecyclerView.Adapter<FlowersViewHolder> {
 
-    private static final String TAG = "ADAPTER";
+    private static final String TAG = "FlowersAdapter";
 
     private List<Flower> flowers = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
