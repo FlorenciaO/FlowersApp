@@ -7,4 +7,6 @@
     <string name="flor2_desc">La flor de loto es una de las dos especies pertenecientes al género Nelumbo. Recibe de apodo el loto sagrado, loto indio o flor de loto, y a veces el de rosa del Nilo. Es famosa la longevidad de sus semillas, ya que pueden germinar después de diez siglos.</string>
     <string name="flor3_nombre">Girasol</string>
     <string name="flor3_desc">El girasol es nativo de América, más precisamente de Norteamérica o de Centroamérica. Existen registros de su domesticación alrededor del 2600 a. C en México. Su cultivo se remonta al año 1000 a. C. En muchas culturas originarias americanas, el girasol fue utilizado como la representación de la deidad solar, principalmente los aztecas y otomíes en México, y los incas, chancas, huancas y chachapoyas en el Perú.</string>
+    <string name="flor_nombre_ejemplo">Nueva Flor</string>
+    <string name="flor_desc_ejemplo">Nueva Flor Descripcion</string>
 </resources>

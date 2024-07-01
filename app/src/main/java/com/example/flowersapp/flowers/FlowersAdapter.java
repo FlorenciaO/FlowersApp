@@ -1,5 +1,6 @@
 package com.example.flowersapp.flowers;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import java.util.List;
 public class FlowersAdapter extends
         RecyclerView.Adapter<FlowersViewHolder> {
 
+    private static final String TAG = "ADAPTER";
+
     private List<Flower> flowers = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
 
@@ -22,6 +25,9 @@ public class FlowersAdapter extends
         this.onItemClickListener = onItemClickListener;
     }
 
+    /**
+     * Este metodo se llama cuando el RecyclerView necesita una nueva vista, es decir, hay un item nuevo.
+     */
     @NonNull
     @Override
     public FlowersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,12 +35,18 @@ public class FlowersAdapter extends
                 LayoutInflater
                         .from(parent.getContext())
                         .inflate(R.layout.item_flower, parent, false);
+        Log.d(TAG, "onCreateViewHolder");
         return new FlowersViewHolder(itemLibro);
     }
 
+    /**
+     * Este metodo es llamado por el Recyclerview para mostrar la data en la posicion especificada.
+     * Se debe actualizar la vista en base al item.
+     */
     @Override
     public void onBindViewHolder(@NonNull FlowersViewHolder holder, int position) {
         holder.bind(flowers.get(position), onItemClickListener);
+        Log.d(TAG, "onBindViewHolder");
     }
 
     @Override
@@ -48,7 +60,7 @@ public class FlowersAdapter extends
         notifyDataSetChanged();
     }
 
-    public List<Flower> getLibros() {
+    public List<Flower> getFloresLista() {
         return this.flowers;
     }
 
