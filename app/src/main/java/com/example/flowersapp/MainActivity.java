@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 List<Flower> newList = new ArrayList<>( flowersAdapter.getFloresLista() );
-                newList.add(new Flower(4, getString(R.string.flor_nombre_ejemplo), getString(R.string.flor_desc_ejemplo), Flower.ImagenId.PLACEHOLDER));
+                newList.add(new Flower(idContador, getString(R.string.flor_nombre_ejemplo), getString(R.string.flor_desc_ejemplo), Flower.ImagenId.PLACEHOLDER));
                 idContador++;
                 flowersAdapter.setNewFlowers(newList);
             }
