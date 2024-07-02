@@ -29,6 +29,14 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:text="AGREGAR ITEM"/>
+        
+        <Button
+            android:id="@+id/modificar_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MODIFICAR ITEM 1"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 

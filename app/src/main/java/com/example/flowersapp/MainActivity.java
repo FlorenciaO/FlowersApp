@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView floresRV;
     private FlowersAdapter flowersAdapter;
     private Button agregarItemBtn;
-    private int idContador = 5;
+    private Button modificarItemBtn;
+    private int idContador = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
                 newList.add(new Flower(idContador, getString(R.string.flor_nombre_ejemplo), getString(R.string.flor_desc_ejemplo), Flower.ImagenId.PLACEHOLDER));
                 idContador++;
                 flowersAdapter.setNewFlowers(newList);
+            }
+        });
+        modificarItemBtn = findViewById(R.id.modificar_item1);
+        modificarItemBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO(1. Obtener el primer elemento de la lista)
+                // TODO(2. Modificar el nombre) --> Se va a ejecutar el onBindViewHolder()
+                // TODO(3. Obtener el segundo elemento de la lista)
+                // TODO(4. Modificar la descripcion) --> No se va a ejecutar el onBindViewHolder()
+                // TODO(5. Setear la nueva lista)
             }
         });
     }
@@ -60,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
             add(new Flower(1, getString(R.string.flor1_nombre), getString(R.string.flor1_desc), Flower.ImagenId.FLOR1));
             add(new Flower(2, getString(R.string.flor2_nombre), getString(R.string.flor2_desc), Flower.ImagenId.FLOR2));
             add(new Flower(3, getString(R.string.flor3_nombre), getString(R.string.flor3_desc), Flower.ImagenId.FLOR3));
-            add(new Flower(4, getString(R.string.flor4_nombre), getString(R.string.flor4_desc), Flower.ImagenId.FLOR4));
         }};
     }
 }
