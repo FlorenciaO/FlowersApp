@@ -91,6 +91,7 @@ public class FlowersAdapter extends
         this.flowers.clear();
         this.flowers.addAll(newFlowers);
         diffResult.dispatchUpdatesTo(this);
+        // notifyDataSetChanged(); -> Reemplazamos este metodo por el DiffUtil
     }
 
     public List<Flower> getFloresLista() {
@@ -135,7 +136,7 @@ public class FlowersAdapter extends
             Flower oldItem = oldList.get(oldItemPosition);
             Flower newItem = newList.get(newItemPosition);
             Log.d(TAG, "areContentsTheSame");
-            return Objects.equals(oldItem.getDescripcion(), newItem.getDescripcion());
+            return Objects.equals(oldItem.getNombre(), newItem.getNombre());
         }
     }
 }
