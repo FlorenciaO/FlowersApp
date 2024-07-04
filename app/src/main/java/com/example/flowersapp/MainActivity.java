@@ -43,13 +43,15 @@ public class MainActivity extends AppCompatActivity {
         modificarItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO(1. Obtener el primer elemento de la lista)
-                // TODO(2. Modificar el nombre) --> Se va a ejecutar el onBindViewHolder()
-                // TODO(3. Obtener el segundo elemento de la lista)
-                // TODO(4. Modificar la descripcion) --> No se va a ejecutar el onBindViewHolder()
-                // TODO(5. Setear la nueva lista)
+                List<Flower> newList = new ArrayList<>( flowersAdapter.getFloresLista() );
+                newList.get(0).setNombre("NUEVO NOMBRE"); // --> Se va a ejecutar el onBindViewHolder()
+                newList.get(1).setDescripcion("NUEVA DESCRIPCION"); // --> No se va a ejecutar el onBindViewHolder()
+
+                flowersAdapter.setNewFlowers(newList);
             }
         });
+
+        // TODO(Completar los de eliminar primero y ultimo, y ver qué sucede)
     }
 
     private void setupAdapter() {

@@ -34,9 +34,25 @@
             android:id="@+id/modificar_item1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MODIFICAR ITEM 1"
+            android:text="MODIFICAR ITEM 1 y 2"
             android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:id="@+id/eliminar_primero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            android:text="ELIMINAR PRIMERO"/>
+
+        <Button
+            android:id="@+id/eliminar_ultimo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            android:text="ELIMINAR ULTIMO"/>
 
     </LinearLayout>
 

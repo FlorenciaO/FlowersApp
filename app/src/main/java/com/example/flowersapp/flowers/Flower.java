@@ -35,6 +35,14 @@ public class Flower implements Serializable {
         return imagenId;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public enum ImagenId {
         FLOR1,
         FLOR2,

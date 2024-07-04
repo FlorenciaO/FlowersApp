@@ -38,13 +38,12 @@ public class FlowersAdapter extends
         switch (viewType) {
             case 1:
                 viewHolder = new FlowersImparViewHolder(layoutInflater.inflate(R.layout.item_flower_impar, parent, false));
-                Log.d(TAG, "onCreateViewHolder - tipo impar");
                 break;
             case 0:
                 viewHolder = new FlowersParViewHolder(layoutInflater.inflate(R.layout.item_flower_par, parent, false));
-                Log.d(TAG, "onCreateViewHolder - tipo par");
                 break;
         }
+        Log.d(TAG, "onCreateViewHolder");
         return viewHolder;
     }
 
@@ -59,14 +58,14 @@ public class FlowersAdapter extends
             case 1:
                 FlowersImparViewHolder viewHolder1 = (FlowersImparViewHolder) holder;
                 viewHolder1.bind(flor, onItemClickListener);
-                Log.d(TAG, "onBindViewHolder - tipo impar");
                 break;
             case 0:
                 FlowersParViewHolder viewHolder2 = (FlowersParViewHolder) holder;
                 viewHolder2.bind(flor, onItemClickListener);
-                Log.d(TAG, "onBindViewHolder - tipo par");
                 break;
         }
+
+        Log.d(TAG, "onBindViewHolder - NOMBRE: " + flor.getNombre());
     }
 
     @Override
@@ -138,5 +137,19 @@ public class FlowersAdapter extends
             Log.d(TAG, "areContentsTheSame");
             return Objects.equals(oldItem.getNombre(), newItem.getNombre());
         }
+
+/*
+        TODO(1. Descomentar esta linea, reemplazando el metodo de arriba, para ver qué pasa cuando
+        modificamos los nombres de los items pero comparamos por descripcion)
+
+        @Override
+        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+            Flower oldItem = oldList.get(oldItemPosition);
+            Flower newItem = newList.get(newItemPosition);
+            Log.d(TAG, "areContentsTheSame");
+            return Objects.equals(oldItem.getDescripcion(), newItem.getDescripcion());
+        }*/
+
+        // TODO(2. Qué comparación sería la forma adecuada para este ejercicio?)
     }
 }
