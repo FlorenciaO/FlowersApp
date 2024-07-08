@@ -12,6 +12,13 @@ public class Flower implements Serializable {
     public Flower() {
     }
 
+    public Flower(Flower flor) {
+        this.id = flor.getId();
+        this.nombre = flor.getNombre();
+        this.descripcion = flor.getDescripcion();
+        this.imagenId = flor.getImagenId();
+    }
+
     public Flower(Integer id, String nombre, String descripcion, ImagenId imagenId) {
         this.id = id;
         this.nombre = nombre;
@@ -41,6 +48,10 @@ public class Flower implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public void setImagenId(ImagenId imagenId) {
+        this.imagenId = imagenId;
     }
 
     public enum ImagenId {

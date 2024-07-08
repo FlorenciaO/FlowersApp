@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private FlowersAdapter flowersAdapter;
     private Button agregarItemBtn;
     private Button modificarItemBtn;
+    private Button eliminarPrimeroBtn;
+    private Button eliminarUltimoBtn;
     private int idContador = 4;
 
     @Override
@@ -43,15 +45,54 @@ public class MainActivity extends AppCompatActivity {
         modificarItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<Flower> newList = new ArrayList<>( flowersAdapter.getFloresLista() );
-                newList.get(0).setNombre("NUEVO NOMBRE"); // --> Se va a ejecutar el onBindViewHolder()
-                newList.get(1).setDescripcion("NUEVA DESCRIPCION"); // --> No se va a ejecutar el onBindViewHolder()
+                List<Flower> listaPrevia = flowersAdapter.getFloresLista();
+                ArrayList<Flower> newList = new ArrayList<>( listaPrevia );
+                Flower primerElemento = new Flower(newList.get(0));
+                Flower segundoElemento = new Flower(newList.get(1));
+
+                primerElemento.setNombre("NUEVO NOMBRE"); // --> Se va a ejecutar el onBindViewHolder()
+                segundoElemento.setDescripcion("NUEVA DESCRIPCION"); // --> No se va a ejecutar el onBindViewHolder()
+
+                newList.set(0, primerElemento);
+                newList.set(1, segundoElemento);
+
+                // Modificamos elemento 3 - Imagen
+                Flower tercerElemento = new Flower(newList.get(2));
+                tercerElemento.setImagenId(Flower.ImagenId.FLOR2); // --> Se va a ejecutar el onBindViewHolder()
+                newList.set(2, tercerElemento);
 
                 flowersAdapter.setNewFlowers(newList);
             }
         });
 
-        // TODO(Completar los de eliminar primero y ultimo, y ver qué sucede)
+        eliminarPrimeroBtn = findViewById(R.id.eliminar_primero);
+        eliminarUltimoBtn = findViewById(R.id.eliminar_ultimo);
+
+        eliminarPrimeroBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        List<Flower> listaPrevia = flowersAdapter.getFloresLista();
+                        ArrayList<Flower> newList = new ArrayList<>( listaPrevia );
+
+                        newList.remove(0);
+
+                        flowersAdapter.setNewFlowers(newList);
+                    }
+                }
+        );
+        eliminarUltimoBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        List<Flower> listaPrevia = flowersAdapter.getFloresLista();
+                        ArrayList<Flower> newList = new ArrayList<>( listaPrevia );
+
+                        newList.remove(newList.size() - 1);
+                        flowersAdapter.setNewFlowers(newList);
+                    }
+                }
+        );
     }
 
     private void setupAdapter() {
@@ -59,9 +100,10 @@ public class MainActivity extends AppCompatActivity {
 
         flowersAdapter = new FlowersAdapter(new FlowersAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Flower flor) {
+            public void onItemClick(int position) {
+                Flower florNueva = flowersAdapter.getFloresLista().get(position);
                 Intent intent = new Intent(MainActivity.this, DetallesFlowerActivity.class);
-                intent.putExtra(KEY_PARAM_FLOWER, flor);
+                intent.putExtra(KEY_PARAM_FLOWER, florNueva);
                 startActivity(intent);
             }
         }, getFlowers());

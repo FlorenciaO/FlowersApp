@@ -22,19 +22,19 @@ public class FlowersImparViewHolder extends RecyclerView.ViewHolder {
         abrirIv = itemView.findViewById(R.id.ver_mas_text_view);
     }
 
-    public void bind(Flower flower, FlowersAdapter.OnItemClickListener onItemClickListener) {
+    public void bind(Flower flower, FlowersAdapter.OnItemClickListener onItemClickListener, int position) {
         nombreTv.setText(flower.getNombre());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onItemClickListener.onItemClick(flower);
+                onItemClickListener.onItemClick(position);
             }
         });
         abrirIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onItemClickListener.onItemClick(flower);
+                onItemClickListener.onItemClick(position);
             }
         });
 

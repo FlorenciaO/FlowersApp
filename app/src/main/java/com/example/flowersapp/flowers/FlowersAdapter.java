@@ -57,11 +57,11 @@ public class FlowersAdapter extends
         switch (getItemViewType(position)) {
             case 1:
                 FlowersImparViewHolder viewHolder1 = (FlowersImparViewHolder) holder;
-                viewHolder1.bind(flor, onItemClickListener);
+                viewHolder1.bind(flor, onItemClickListener, position);
                 break;
             case 0:
                 FlowersParViewHolder viewHolder2 = (FlowersParViewHolder) holder;
-                viewHolder2.bind(flor, onItemClickListener);
+                viewHolder2.bind(flor, onItemClickListener, position);
                 break;
         }
 
@@ -98,7 +98,7 @@ public class FlowersAdapter extends
     }
 
     public interface OnItemClickListener {
-        void onItemClick(Flower flower);
+        void onItemClick(int position);
     }
 
     private class DiffUtilCallback extends DiffUtil.Callback {
@@ -130,19 +130,19 @@ public class FlowersAdapter extends
         }
 
         // Usar este metodo para comparar el contenido del item
-        @Override
+/*        @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             Flower oldItem = oldList.get(oldItemPosition);
             Flower newItem = newList.get(newItemPosition);
             Log.d(TAG, "areContentsTheSame");
             return Objects.equals(oldItem.getNombre(), newItem.getNombre());
-        }
+        }*/
 
-/*
-        TODO(1. Descomentar esta linea, reemplazando el metodo de arriba, para ver qué pasa cuando
-        modificamos los nombres de los items pero comparamos por descripcion)
 
-        @Override
+/*        TODO(1. Descomentar esta linea, reemplazando el metodo de arriba, para ver qué pasa cuando
+        modificamos los nombres de los items pero comparamos por descripcion)*/
+
+/*        @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             Flower oldItem = oldList.get(oldItemPosition);
             Flower newItem = newList.get(newItemPosition);
@@ -151,5 +151,13 @@ public class FlowersAdapter extends
         }*/
 
         // TODO(2. Qué comparación sería la forma adecuada para este ejercicio?)
+        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+            Flower oldItem = oldList.get(oldItemPosition);
+            Flower newItem = newList.get(newItemPosition);
+            Log.d(TAG, "areContentsTheSame");
+            return Objects.equals(oldItem.getNombre(), newItem.getNombre()) &&
+                    Objects.equals(oldItem.getImagenId(), newItem.getImagenId());
+        }
+
     }
 }
