@@ -45,8 +45,9 @@ public class FlowersAdapter extends
      */
     @Override
     public void onBindViewHolder(@NonNull FlowersViewHolder holder, int position) {
-        holder.bind(flowers.get(position), onItemClickListener);
-        Log.d(TAG, "onBindViewHolder");
+        Flower flor = flowers.get(position);
+        holder.bind(flor, onItemClickListener);
+        Log.d(TAG, "onBindViewHolder " + flor.getNombre());
     }
 
     @Override
@@ -56,8 +57,11 @@ public class FlowersAdapter extends
 
     public void setFlowers(List<Flower> flowers) {
         this.flowers = flowers;
-        // TODO(4. Como mejora, utilizar un DiffUtil para mejor rendimiento)
+        Log.d(TAG, "---------------------------------");
         notifyDataSetChanged();
+        // notifyItemInserted(flowers.size() - 1);
+        // TODO(4. Optimizar con otro metodo notifier mas apropiado)
+        // TODO(5. Como mejora, utilizar un DiffUtil para mejor rendimiento)
     }
 
     public List<Flower> getFloresLista() {
