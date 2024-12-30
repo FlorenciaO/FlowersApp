@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Modificamos elemento 3 - Imagen
                 Flower tercerElemento = new Flower(newList.get(2));
-                tercerElemento.setImagenId(Flower.ImagenId.FLOR2); // --> Se va a ejecutar el onBindViewHolder()
+                tercerElemento.setImagenId(Flower.ImagenId.FLOR2); // --> Se va a ejecutar el onBindViewHolder() ?
                 newList.set(2, tercerElemento);
 
                 flowersAdapter.setNewFlowers(newList);

@@ -130,16 +130,16 @@ public class FlowersAdapter extends
         }
 
         // Usar este metodo para comparar el contenido del item
-/*        @Override
+        @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             Flower oldItem = oldList.get(oldItemPosition);
             Flower newItem = newList.get(newItemPosition);
             Log.d(TAG, "areContentsTheSame");
             return Objects.equals(oldItem.getNombre(), newItem.getNombre());
-        }*/
+        }
 
 
-/*        TODO(1. Descomentar esta linea, reemplazando el metodo de arriba, para ver qué pasa cuando
+/*        TODO(1. Reemplazando el metodo de arriba, para ver qué pasa cuando
         modificamos los nombres de los items pero comparamos por descripcion)*/
 
 /*        @Override
@@ -151,13 +151,13 @@ public class FlowersAdapter extends
         }*/
 
         // TODO(2. Qué comparación sería la forma adecuada para este ejercicio?)
-        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+/*        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             Flower oldItem = oldList.get(oldItemPosition);
             Flower newItem = newList.get(newItemPosition);
             Log.d(TAG, "areContentsTheSame");
             return Objects.equals(oldItem.getNombre(), newItem.getNombre()) &&
                     Objects.equals(oldItem.getImagenId(), newItem.getImagenId());
-        }
+        }*/
 
     }
 }
